@@ -1,5 +1,9 @@
-echo "enter the password"
-read password
+if [[ $1 == '-f' ]] ; then
+  password=$(cat $2)
+else
+  echo "enter the password"
+  read password
+fi
 len="${#password}"
 if test $len -ge 10 ; then
     echo "$password" | grep -q [0-9]
