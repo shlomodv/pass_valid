@@ -1,5 +1,14 @@
-echo "enter the password"
-read password
+# Color
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m' #No Color
+
+if [[ $1 == '-f' ]] ; then
+  password=$(cat $2)
+else
+  echo "enter the password"
+  read password
+fi
 len="${#password}"
 if test $len -ge 10 ; then
     echo "$password" | grep -q [0-9]
